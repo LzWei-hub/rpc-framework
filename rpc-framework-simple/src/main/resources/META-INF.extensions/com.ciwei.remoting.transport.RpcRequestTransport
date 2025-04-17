@@ -1,0 +1,2 @@
+netty=com.ciwei.remoting.transport.netty.client.NettyRpcClient
+socket=com.ciwei.remoting.transport.socket.client.SocketRpcClient
