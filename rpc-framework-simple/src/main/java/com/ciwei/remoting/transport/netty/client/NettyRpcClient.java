@@ -77,6 +77,8 @@ public class NettyRpcClient implements RpcRequestTransport {
      */
     @SneakyThrows
     public Channel doConnect(InetSocketAddress inetSocketAddress) {
+        // Netty 客户端连接逻辑
+        log.info("NettyRpcClient 连接到服务器成功");
         CompletableFuture<Channel> completableFuture = new CompletableFuture<>();
         bootstrap.connect(inetSocketAddress).addListener((ChannelFutureListener) future -> {
             if (future.isSuccess()) {

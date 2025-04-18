@@ -42,6 +42,8 @@ public class NettyRpcServer {
 
     @SneakyThrows
     public void start() {
+        // Netty 服务器启动逻辑
+        log.info("NettyRpcServer 启动成功，等待客户端连接");
         CustomShutdownHook.getCustomShutdownHook().clearAll();
         String host = InetAddress.getLocalHost().getHostAddress();
         EventLoopGroup boosGroup = new NioEventLoopGroup(1);

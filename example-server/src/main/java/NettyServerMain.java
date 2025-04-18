@@ -3,12 +3,15 @@ import com.ciwei.annotation.RpcScan;
 import com.ciwei.config.RpcServiceConfig;
 import com.ciwei.remoting.transport.netty.server.NettyRpcServer;
 import com.ciwei.serviceimpl.BookServiceImpl2;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.logging.Log;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * Create by LzWei on 2025/4/16
  */
 @RpcScan(basePackage = {"com.ciwei"})
+@Slf4j
 public class NettyServerMain {
     public static void main(String[] args) {
         // 通过 annotation 注册服务
@@ -43,7 +46,7 @@ public class NettyServerMain {
 
         } catch (Exception e) {
             // 异常处理：打印堆栈信息或记录日志
-            System.err.println("Error occurred during server initialization: " + e.getMessage());
+            log.error("Error occurred during server initialization: " + e.getMessage());
             e.printStackTrace();
         } finally {
             // 确保资源释放

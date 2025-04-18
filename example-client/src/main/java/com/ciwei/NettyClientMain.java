@@ -1,17 +1,15 @@
 package com.ciwei;
 
 import com.ciwei.annotation.RpcScan;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * Create by LzWei on 2025/4/16
  */
 @RpcScan(basePackage = {"com.ciwei"})
+@Slf4j
 public class NettyClientMain {
-
-    private static final Logger logger = LoggerFactory.getLogger(NettyClientMain.class);
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = null;
@@ -21,10 +19,9 @@ public class NettyClientMain {
             BookController bookController = applicationContext.getBean(BookController.class);
             // 调用 test 方法并捕获异常
             bookController.test();
-        } catch (InterruptedException e) {
-            logger.error("线程中断异常：", e);
+            log.info("RPC 调用测试完成");
         } catch (Exception e) {
-            logger.error("发生未知异常：", e);
+            log.error("发生未知异常：", e);
         } finally {
             // 确保容器关闭，释放资源
             if (applicationContext != null) {
@@ -50,6 +47,7 @@ public class NettyClientMain {
     private static void closeApplicationContext(AnnotationConfigApplicationContext applicationContext) {
         if (applicationContext != null) {
             applicationContext.close();
+            log.info("Spring 容器已关闭");
         }
     }
 }

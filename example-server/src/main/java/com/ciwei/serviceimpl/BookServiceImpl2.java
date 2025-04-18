@@ -3,6 +3,8 @@ package com.ciwei.serviceimpl;
 import com.ciwei.Book;
 import com.ciwei.BookService;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Create by LzWei on 2025/4/16
@@ -11,14 +13,19 @@ import lombok.extern.slf4j.Slf4j;
 public class BookServiceImpl2 implements BookService {
 
     static {
-        System.out.println("BookServiceImpl2 init");
+        log.info("BookServiceImpl2 init");
     }
+
+    private static final Logger logger = LoggerFactory.getLogger(BookServiceImpl2.class);
 
     @Override
     public String book(Book book) {
-        log.info("bookServiceImpl2收到：",book.getName());
+        logger.info("book() 方法被调用，输入参数: {}", book);
+
+        // 业务逻辑处理
         String result = "bookServiceImpl2返回作者：" + book.getAuthor();
-        log.info("bookServiceImpl2返回：",result);
+
+        logger.info("book() 方法执行完成，返回结果: {}", result);
         return result;
     }
 }
