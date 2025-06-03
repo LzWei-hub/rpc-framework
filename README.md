@@ -50,7 +50,3 @@ mvn clean install
 ## 贡献
 
 欢迎对本项目进行贡献，你可以通过提交 issue 或 pull request 的方式参与。
-
-## 许可证
-
-本项目采用 [MIT 许可证]()。
