@@ -46,7 +46,3 @@ mvn clean install
 - `UnprocessedRequests`：管理未处理的请求。
 - `NettyRpcClientHandler` 和 `NettyRpcServerHandler`：处理客户端和服务端的消息。
 
-
-## 贡献
-
-欢迎对本项目进行贡献，你可以通过提交 issue 或 pull request 的方式参与。
